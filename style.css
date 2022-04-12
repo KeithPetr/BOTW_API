@@ -50,6 +50,14 @@ header > img {
     border-bottom: 1px solid black;
 }
 
+#creatures > span {
+    cursor: pointer;
+}
+
+#creatures:hover {
+    border: 1px solid silver;
+}
+
 .left-content {
     display: flex;
     flex-direction: column;
