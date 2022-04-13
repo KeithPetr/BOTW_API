@@ -50,7 +50,7 @@ header > img {
     border-bottom: 1px solid black;
 }
 
-#creatures > span {
+#creatures {
     cursor: pointer;
 }
 
@@ -72,6 +72,8 @@ header > img {
     grid: repeat(5, 100px) / repeat(5, 100px);
     gap: 1em;
     padding: 1em;
+    height: 600px;
+    overflow: scroll;
     border: 1px solid red;
 }
 
