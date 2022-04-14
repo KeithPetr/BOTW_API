@@ -5,68 +5,114 @@
 
 // getData()
 
-const creatures = document.getElementById("creatures")
+const smallCreatures = document.getElementById("small-creatures")
+const largeCreatures = document.getElementById("large-creatures")
 const images = document.getElementById("image-container")
 const largeImage = document.getElementById("large-image")
 const description = document.getElementById("description")
 const thingName = document.getElementById("thing-name")
+const equipment = document.getElementById("equipment")
+const materials = document.getElementById("materials")
+const monsters = document.getElementById("monsters")
+const treasure = document.getElementById("treasure")
 
-// --- Call and Display Small Creatures ---
+// --- Get and display the images ---
 
-let smallCreatureImg
+let getImg
+
+function getImages(dataset) {
+    // clear previous grid images
+    images.innerHTML = ""
+    // create new grid images
+    for (let i = 0; i < dataset.length; i++) {
+        getImg = document.createElement("img")
+        getImg.src = dataset[i].image
+        getImg.id = dataset[i].description
+        getImg.title = dataset[i].name
+        getImg.addEventListener("click", function(event) {
+            console.log(event)
+            largeImage.src = event.target.src
+            description.textContent = event.target.id
+            thingName.textContent = event.target.title
+        })
+        images.appendChild(getImg)
+    }
+}
+
+// --- Display Small Creatures ---
 
 function getSmallCreatureData() {
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/creatures`)
     .then(response => response.json())
     .then(data => {
         console.log(data.data.food)
-        images.innerHTML = ""
-        for (let i = 0; i < data.data.food.length; i++) {
-            smallCreatureImg = document.createElement("img")
-            smallCreatureImg.src = data.data.food[i].image
-            smallCreatureImg.id = data.data.food[i].description
-            smallCreatureImg.title = data.data.food[i].name
-            smallCreatureImg.addEventListener("click", function(event) {
-                console.log("clicked")
-                console.log(event)
-                largeImage.src = event.target.src
-                description.textContent = event.target.id
-                thingName.textContent = event.target.title
-            })
-            images.appendChild(smallCreatureImg)
-            console.log(smallCreatureImg)
-        }
+        getImages(data.data.food)
     }) 
 }
 
-creatures.addEventListener("click", getSmallCreatureData)
+smallCreatures.addEventListener("click", getSmallCreatureData)
 
-// --- Call and Display Equipment ---
+// --- Display Large Creatures ---
 
-let equipmentImg
+function getLargeCreatureData() {
+    fetch(`https://botw-compendium.herokuapp.com/api/v2/category/creatures`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data.non_food)
+        getImages(data.data.non_food)
+    }) 
+}
+
+largeCreatures.addEventListener("click", getLargeCreatureData)
+
+// --- Display Equipment ---
 
 function getEquipmentData() {
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/equipment`)
     .then(response => response.json())
     .then(data => {
         console.log(data.data)
-        images.innerHTML = ""
-        for (let i = 0; i < data.data.length; i++) {
-            equipmentImg = document.createElement("img")
-            equipmentImg.src = data.data[i].image
-            equipmentImg.id = data.data[i].description
-            equipmentImg.title = data.data[i].name
-            equipmentImg.addEventListener("click", function(event) {
-                console.log("clicked")
-                console.log(event)
-                largeImage.src = event.target.src
-                description.textContent = event.target.id
-                thingName.textContent = event.target.title
-            })
-            images.appendChild(equipmentImg)
-            console.log(equipmentImg)
-        }
+        getImages(data.data)
     }) 
 }
 
 equipment.addEventListener("click", getEquipmentData)
+
+// --- Display Materials ---
+
+function getMaterialsData() {
+    fetch(`https://botw-compendium.herokuapp.com/api/v2/category/materials`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data)
+        getImages(data.data)
+    }) 
+}
+
+materials.addEventListener("click", getMaterialsData)
+
+// --- Display Monsters ---
+
+function getMonstersData() {
+    fetch(`https://botw-compendium.herokuapp.com/api/v2/category/monsters`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data)
+        getImages(data.data)
+    }) 
+}
+
+monsters.addEventListener("click", getMonstersData)
+
+// --- Display Treasure ---
+
+function getTreasureData() {
+    fetch(`https://botw-compendium.herokuapp.com/api/v2/category/treasure`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.data)
+        getImages(data.data)
+    }) 
+}
+
+treasure.addEventListener("click", getTreasureData)
