@@ -71,20 +71,24 @@ header > img {
 .category-tabs {
     color: black;
     font-size: 1.7rem;
-    
     cursor: pointer;
     padding: .5em .5em;
     border-radius: 50%
 }
 
 .category-tabs-clicked {
-    color: white;
+    color: #f4f4ec;
     background: black;
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: .5em .5em;
+    border-radius: 50%;
 }
 
 .category-tabs:hover {
-    color: white;
-    background-color: rgba(26,27,24, 0.5)
+    color: #f4f4ec;
+    background-color: rgba(26,27,24, 0.1);
+    text-shadow: 1px 1px 1px black;
 }
 
 .left-content {

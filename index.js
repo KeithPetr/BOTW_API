@@ -15,6 +15,7 @@ const equipment = document.getElementById("equipment")
 const materials = document.getElementById("materials")
 const monsters = document.getElementById("monsters")
 const treasure = document.getElementById("treasure")
+const tabs = document.querySelectorAll(".category-tabs");
 
 // --- Get and display the images ---
 
@@ -41,13 +42,31 @@ function getImages(dataset) {
     }
 }
 
+// --- Category Tab Class Selector ---
+
+function toggleTab(event) {
+    for (let i = 0; i < tabs.length; i++) {
+        console.log(tabs[i])
+          if (tabs[i].id == event.target.id) {
+            tabs[i].classList.add('category-tabs-clicked');
+            tabs[i].classList.remove('category-tabs');
+          } else if (tabs[i].id != event.target.id 
+                    && tabs[i].classList.contains("category-tabs-clicked")) {
+                        tabs[i].classList.remove('category-tabs-clicked')
+                        tabs[i].classList.add('category-tabs')
+            }
+    }
+ }
+
 // --- Display Small Creatures ---
 
-function getSmallCreatureData() {
+function getSmallCreatureData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/creatures`)
     .then(response => response.json())
     .then(data => {
         console.log(data.data.food)
+        console.log(smallCreatures)
         getImages(data.data.food)
     }) 
 }
@@ -56,7 +75,8 @@ smallCreatures.addEventListener("click", getSmallCreatureData)
 
 // --- Display Large Creatures ---
 
-function getLargeCreatureData() {
+function getLargeCreatureData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/creatures`)
     .then(response => response.json())
     .then(data => {
@@ -69,7 +89,8 @@ largeCreatures.addEventListener("click", getLargeCreatureData)
 
 // --- Display Equipment ---
 
-function getEquipmentData() {
+function getEquipmentData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/equipment`)
     .then(response => response.json())
     .then(data => {
@@ -82,7 +103,8 @@ equipment.addEventListener("click", getEquipmentData)
 
 // --- Display Materials ---
 
-function getMaterialsData() {
+function getMaterialsData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/materials`)
     .then(response => response.json())
     .then(data => {
@@ -95,7 +117,8 @@ materials.addEventListener("click", getMaterialsData)
 
 // --- Display Monsters ---
 
-function getMonstersData() {
+function getMonstersData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/monsters`)
     .then(response => response.json())
     .then(data => {
@@ -108,7 +131,8 @@ monsters.addEventListener("click", getMonstersData)
 
 // --- Display Treasure ---
 
-function getTreasureData() {
+function getTreasureData(event) {
+    toggleTab(event)
     fetch(`https://botw-compendium.herokuapp.com/api/v2/category/treasure`)
     .then(response => response.json())
     .then(data => {
