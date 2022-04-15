@@ -3,13 +3,22 @@
     margin: 0;
 }
 
-body {
+html {
     background-image: url("BOTW_Background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: "The Wild Breath of Zelda";
+    min-width: 1850px;
+    letter-spacing: 1px;
 }
 
 /* Header Layout */
+
+h1 {
+    font-size: 3rem;
+    color: green;
+    
+}
 
 header {
     display: flex;
@@ -25,7 +34,8 @@ header > input {
     margin-right: 1em;
     border: 1px solid black;
     font-size: 1.5rem;
-    height: 10%;
+    height: 15%;
+    width: 13%;
     
 }
 
@@ -51,28 +61,37 @@ header > img {
     display: flex;
     justify-content: space-between;
     margin: 2em auto 0;
-    padding: 0 2em 1em;
+    padding: 1em;
     width: 90%;
     border-bottom: 1px solid black;
     text-align: center;
     align-items: center;
 }
 
-#small-creatures, #equipment, #materials,
- #large-creatures, #monsters, #treasure {
+.category-tabs {
+    color: black;
+    font-size: 1.7rem;
+    
     cursor: pointer;
+    padding: .5em .5em;
+    border-radius: 50%
 }
 
-#small-creatures:hover, #equipment:hover, #materials:hover,
- #large-creatures:hover, #monsters:hover, #treasure:hover {
-    border: 1px solid silver;
+.category-tabs-clicked {
+    color: white;
+    background: black;
+}
+
+.category-tabs:hover {
+    color: white;
+    background-color: rgba(26,27,24, 0.5)
 }
 
 .left-content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 50%;
+    min-width: 50%;
 }
 
 #image-container {
@@ -82,32 +101,61 @@ header > img {
     gap: 1em;
     padding: 1em;
     height: 600px;
-    overflow: scroll;
     margin-top: 1em;
-    border: 1px solid silver;
+    overflow-y: auto;
 }
 
-#image-container > img {
+.img-style {
     object-fit: contain;
+    border: 2px solid gold;
     width: 100%;
 }
 
 /* Right Side Content */
 
-.right-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%
-}
-
-.right-content > img {
-    width: 550px;
+h2 {
     margin-top: 1em;
 }
 
-.right-content > p {
-    margin-top: 2em;
-    width: 550px;
+.right-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+}
+
+.large-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#large-image {
+    width: 350px;
+    margin-top: 1em;
+    align-content: center;
+    border: 2px solid gold;
+}
+
+#description {
+    margin: 1em 0;
+    width: 450px;
     text-align: center;
+    color: white;
+    font-size: 1.75rem;
+    text-shadow: 1px 1px 1px black;
+    line-height: 2rem;
+    margin: 3em 1.2em 0;
+    padding: .5em;
+    background-color: rgba(26,27,24, 0.5)
+}
+
+#thing-name {
+    color: white;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: .3em;
+    text-shadow: 3px 3px 3px black;
 }

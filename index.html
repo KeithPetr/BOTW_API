@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Legend of Zelda: Breath of the Wild</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 
@@ -26,26 +26,35 @@
 
     <main class="main-content">
 
-    <!-- Left Content -->
+      <!-- Left Content -->
 
       <div class="left-content">
         <div class="categories-container">
-          <h3 id="small-creatures">Small<br> Creatures</h3>
-          <h3 id="large-creatures">Large<br> Creatures</h3>
-          <h3 id="equipment">Equipment</h3>
-          <h3 id="materials">Materials</h3>
-          <h3 id="monsters">Monsters</h3>
-          <h3 id="treasure">Treasure</h3>
+          <h3 class="category-tabs" id="small-creatures">
+            Small<br />
+            Creatures
+          </h3>
+          <h3 class="category-tabs" id="large-creatures">
+            Large<br />
+            Creatures
+          </h3>
+          <h3 class="category-tabs" id="equipment">Equipment</h3>
+          <h3 class="category-tabs" id="materials">Materials</h3>
+          <h3 class="category-tabs" id="monsters">Monsters</h3>
+          <h3 class="category-tabs" id="treasure">Treasure</h3>
         </div>
         <div id="image-container"></div>
       </div>
 
-    <!-- Right Content -->
+      <!-- Right Content -->
 
       <div class="right-content">
-        <h2 id="thing-name"></h2>
-        <img id="large-image">
-        <p id="description"></p>
+        <div class="large-image-container">
+          <h2 id="thing-name"></h2>
+          <img id="large-image" />
+        </div>
+        <p id="description">
+          Click or Search an item to display the description</p>
       </div>
     </main>
   </body>

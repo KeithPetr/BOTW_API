@@ -26,6 +26,7 @@ function getImages(dataset) {
     // create new grid images
     for (let i = 0; i < dataset.length; i++) {
         getImg = document.createElement("img")
+        getImg.className = "img-style"
         getImg.src = dataset[i].image
         getImg.id = dataset[i].description
         getImg.title = dataset[i].name
@@ -35,6 +36,7 @@ function getImages(dataset) {
             description.textContent = event.target.id
             thingName.textContent = event.target.title
         })
+        console.log(getImg)
         images.appendChild(getImg)
     }
 }
@@ -112,7 +114,8 @@ function getTreasureData() {
     .then(data => {
         console.log(data.data)
         getImages(data.data)
-    }) 
+    })
 }
 
 treasure.addEventListener("click", getTreasureData)
+
