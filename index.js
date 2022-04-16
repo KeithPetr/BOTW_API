@@ -1,10 +1,3 @@
-// function getData() {
-//     fetch(`https://botw-compendium.herokuapp.com/api/v2`)
-//     .then(response => response.json())
-//     .then(data => console.log(data))}
-
-// getData()
-
 const smallCreatures = document.getElementById("small-creatures")
 const largeCreatures = document.getElementById("large-creatures")
 const images = document.getElementById("image-container")
@@ -16,6 +9,8 @@ const materials = document.getElementById("materials")
 const monsters = document.getElementById("monsters")
 const treasure = document.getElementById("treasure")
 const tabs = document.querySelectorAll(".category-tabs");
+const searchBar = document.getElementById("search-bar")
+
 
 // --- Get and display the images ---
 

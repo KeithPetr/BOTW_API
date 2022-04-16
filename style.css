@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin:0;
 }
 
 html {
@@ -10,6 +10,7 @@ html {
     font-family: "The Wild Breath of Zelda";
     min-width: 1850px;
     letter-spacing: 1px;
+    
 }
 
 /* Header Layout */
@@ -17,7 +18,6 @@ html {
 h1 {
     font-size: 3.3rem;
     color: green;
-    
 }
 
 header {
@@ -46,7 +46,7 @@ header > h1 {
 
 header > img {
     width: 10%;
-    margin: 1em 0 1em 1em
+    margin: 1em 1em 1em 1em
 }
 
 /* Main Content */
@@ -104,8 +104,8 @@ header > img {
     grid: repeat(5, 100px) / repeat(5, 100px);
     gap: 1.5em;
     padding: 1em;
-    height: 600px;
-    margin-top: 1em;
+    margin: 1em 0;
+    height: 580px;
     overflow-y: auto;
 }
 
